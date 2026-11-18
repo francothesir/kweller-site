@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0b0b0b" />
+<meta name="description" content="Kweller — música, lançamentos, apresentações e contratação de shows." />
+<title>kweller — oficial</title>
+<style>
+:root{--ink:#0b0b0b;--paper:#f4f1eb;--muted:#a7a6a1;--ease:cubic-bezier(.2,.78,.18,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}::selection{background:var(--paper);color:var(--ink)}
+nav{position:fixed;z-index:40;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 5vw;font-size:11px;letter-spacing:.16em;text-transform:uppercase;mix-blend-mode:difference}nav .links{display:flex;gap:clamp(12px,2.3vw,30px)}nav a{transition:opacity .25s}nav a:hover{opacity:.55}
+.hero{height:100svh;min-height:540px;display:grid;place-items:center;position:relative;overflow:hidden;isolation:isolate}.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 52%,#272723 0%,transparent 55%);opacity:.2}
+.hero-scene{position:absolute;inset:0;display:grid;place-items:center;will-change:transform,opacity}.hero h1{font-size:clamp(76px,18.8vw,340px);font-weight:900;letter-spacing:-.074em;line-height:.88;margin:0;position:relative;z-index:3;white-space:nowrap;pointer-events:none;display:flex;align-items:baseline;transform-origin:center;filter:drop-shadow(0 3px 24px #0005)}
+.hero h1 .glyph{display:inline-block;opacity:0;transform:translate3d(0,110%,0) rotate(5deg);animation:rise 1.45s var(--ease) forwards;animation-delay:calc(.30s + var(--i)*.075s)}
+.hero h1 .double-l{display:inline-flex;gap:0;letter-spacing:-.055em;margin-left:.006em;margin-right:.006em}.hero h1 .double-l .glyph{width:.205em;text-align:center}
+@keyframes rise{to{opacity:1;transform:translate3d(0,0,0) rotate(0)}}
+.symbol-wrap{position:absolute;z-index:2;left:50%;top:50%;width:clamp(420px,58vw,820px);aspect-ratio:1122/1402;pointer-events:none;transform:translate(-50%,-50%);will-change:transform}.symbol-core{width:100%;height:100%;transform-origin:50% 50%;animation:symbol-arrive 1.8s var(--ease) both,ambient-spin 32s 2s linear infinite;filter:drop-shadow(0 0 52px #deddd522)}.symbol-core svg{display:block;width:100%;height:100%;color:var(--paper);opacity:.72}.symbol-wrap::before{content:"";position:absolute;inset:21%;border-radius:50%;background:#f4f1eb;filter:blur(80px);opacity:.07;animation:breathe 7s ease-in-out infinite alternate}
+@keyframes symbol-arrive{from{opacity:0;transform:scale(.15) rotate(-105deg);filter:blur(18px)}to{opacity:1;transform:scale(1) rotate(0);filter:blur(0)}}@keyframes ambient-spin{to{transform:rotate(360deg)}}@keyframes breathe{to{transform:scale(1.6);opacity:.14}}
+.scroll-prompt{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.24em;white-space:nowrap;display:flex;align-items:center;gap:14px;opacity:0;animation:fadein 1s 1.75s forwards}.scroll-prompt .line{width:34px;height:1px;background:currentColor;transform-origin:left;animation:line-breathe 2s 2s ease-in-out infinite alternate}@keyframes line-breathe{to{transform:scaleX(.5)}}@keyframes fadein{to{opacity:.85}}
+.hero-index{position:absolute;bottom:29px;left:5vw;color:#7f7f7a;font-size:10px;letter-spacing:.18em}
+.section{padding:130px 6vw;min-height:75vh;position:relative}.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#aaa}.headline{font-size:clamp(44px,9vw,140px);letter-spacing:-.075em;line-height:.95;margin:25px 0 70px}.reveal{opacity:0;transform:translateY(38px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.reveal.visible{opacity:1;transform:translateY(0)}
+.albums{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.album{border-top:1px solid #555;padding-top:15px}.art{aspect-ratio:1;background:linear-gradient(140deg,#303030,#101010 55%,#4a4a4a);display:flex;align-items:center;justify-content:center;font-size:clamp(24px,3vw,54px);letter-spacing:-.07em;font-weight:900;text-align:center;padding:20px;transition:filter .4s,transform .6s var(--ease)}.album:hover .art{filter:invert(1);transform:scale(.975)}.album p{display:flex;justify-content:space-between;gap:10px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.live{background:#e5e3dc;color:#111}.live .eyebrow{color:#555}.livegrid{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:end}.live p{font-size:clamp(18px,2.3vw,32px);line-height:1.3}.button{display:inline-block;border:1px solid currentColor;border-radius:100px;padding:17px 28px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s}.button:hover{background:#111;color:#fff}.booking{min-height:90vh}.booking .headline{margin-bottom:40px}.booking form{max-width:650px;display:grid;grid-template-columns:1fr 1fr;gap:20px}input,textarea{width:100%;background:transparent;color:inherit;border:0;border-bottom:1px solid #777;padding:17px 0;outline:none;border-radius:0}input:focus,textarea:focus{border-color:var(--paper)}textarea{grid-column:1/-1;resize:vertical}button{background:#eee;color:#111;border:0;padding:20px;cursor:pointer;text-transform:uppercase;letter-spacing:.15em}footer{padding:35px 6vw;display:flex;justify-content:space-between;border-top:1px solid #333;font-size:11px;letter-spacing:.1em}
+@media(max-width:700px){nav{padding:20px;font-size:10px}nav .links{gap:13px}.hero h1{font-size:20.8vw;letter-spacing:-.075em}.symbol-wrap{width:103vw}.section{padding:90px 22px}.albums{grid-template-columns:1fr}.livegrid{grid-template-columns:1fr}.booking form{grid-template-columns:1fr}footer{gap:20px;flex-wrap:wrap}.hero-index{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.hero h1 .glyph{opacity:1;transform:none}.scroll-prompt{opacity:1}.reveal{opacity:1;transform:none}}
+
+/* Redes: trio de marcas sobrepostas que se abre em uma fileira. */
+.socials{min-height:clamp(420px,58vh,650px);display:flex;align-items:center;justify-content:center;padding:0 24px;border-top:1px solid #30302d;position:relative}
+.social-links{--spread:clamp(105px,15vw,156px);position:relative;width:min(100%,520px);height:184px;display:grid;place-items:center}
+.social-link{position:absolute;top:50%;left:50%;display:grid;place-items:center;width:76px;height:76px;color:var(--paper);border-radius:50%;background:transparent;pointer-events:none;opacity:1;transform:translate(calc(-50% + var(--stack-x)),calc(-50% + var(--stack-y))) rotate(var(--tilt)) scale(.94);transition:transform .85s cubic-bezier(.17,.86,.18,1.12),background .25s;will-change:transform}
+/* Os três desenhos ficam aparentes no estado inicial, sem disco ou blur por cima. */
+.social-link.spotify{--stack-x:-39px;--stack-y:-22px;--tilt:-23deg;z-index:2}
+.social-link.instagram{--stack-x:3px;--stack-y:11px;--tilt:15deg;z-index:3}
+.social-link.tiktok{--stack-x:43px;--stack-y:-13px;--tilt:-12deg;z-index:4}
+.social-links.expanded .social-link{pointer-events:auto;transform:translate(calc(-50% + var(--position)),-50%) rotate(0) scale(1)}
+.social-links.expanded .spotify{--position:calc(var(--spread) * -1)}
+.social-links.expanded .instagram{--position:0px}
+.social-links.expanded .tiktok{--position:var(--spread)}
+.social-links.expanded .social-link:hover{transform:translate(calc(-50% + var(--position)),calc(-50% - 9px)) scale(1.12)}
+.social-link:focus-visible,.social-expand:focus-visible{outline:2px solid var(--paper);outline-offset:5px}
+.social-link svg{width:55px;height:55px;fill:currentColor;display:block;overflow:visible}
+.social-link.spotify svg{width:55px;height:55px;fill:none}
+.social-link.instagram svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.social-link.tiktok svg{width:49px;height:49px}
+/* Área invisível clicável. Não desenhar círculo, + ou embaçamento. */
+.social-expand{position:absolute;top:50%;left:50%;z-index:5;transform:translate(-50%,-50%);width:194px;height:146px;padding:0;border:0;background:transparent;color:transparent;cursor:pointer;transition:opacity .25s}
+.social-expand:hover{background:transparent}
+.social-expand::after{content:none}
+.social-links.expanded .social-expand{opacity:0;pointer-events:none}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){nav .links{gap:10px}nav{font-size:9px;padding:20px 14px}.socials{min-height:clamp(310px,48svh,490px);padding:0 18px}.social-links{--spread:clamp(94px,27vw,122px);height:168px}.social-link{width:68px;height:68px}.social-link.spotify{--stack-x:-31px;--stack-y:-20px}.social-link.instagram{--stack-x:3px;--stack-y:12px}.social-link.tiktok{--stack-x:36px;--stack-y:-11px}.social-link svg,.social-link.spotify svg{width:46px;height:46px}.social-link.tiktok svg{width:41px;height:41px}.social-expand{width:166px;height:140px}}
+@media(prefers-reduced-motion:reduce){.social-link,.social-expand{transition:none!important}}
+
+/* Discografia — seleção artista / produtor */
+.discography-tabs{display:flex;gap:12px;margin:-18px 0 38px;max-width:670px}
+.discography-tab{flex:1;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:62px;padding:17px 21px;background:transparent;color:var(--paper);border:1px solid #545452;text-align:left;font-size:12px;font-weight:700;letter-spacing:.16em;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.discography-tab:hover{border-color:var(--paper);transform:translateY(-2px)}
+.discography-tab.active{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.discography-tab span{font-size:19px;font-weight:400}
+.discography-tab:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
+.discography-panel[hidden]{display:none}
+.discography-panel{animation:discography-show .55s var(--ease) both}
+@keyframes discography-show{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.album.pending .art{background:#151515;color:#777;border:1px dashed #555;font-size:clamp(15px,1.45vw,21px);font-weight:500;letter-spacing:.22em;transition:border-color .3s}
+.album.pending:hover .art{transform:none;filter:none;border-color:#999}
+.album.pending p{color:#777}
+@media(max-width:700px){.discography-tabs{gap:9px;margin:-15px 0 30px}.discography-tab{min-height:58px;padding:14px;font-size:11px}.album.pending .art{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.discography-panel{animation:none}}
+</style>
+</head>
+<body>
+<nav aria-label="Navegação principal"><a href="#inicio" aria-label="Ir ao início">KW.</a><div class="links"><a href="#trabalhos">Trabalhos</a><a href="#ao-vivo">Ao vivo</a><a href="#booking">Booking</a><a href="#redes">Redes</a></div></nav>
+<main>
+<section class="hero" id="inicio" aria-label="Kweller — início">
+  <div class="hero-scene" id="hero-scene">
+    <div class="symbol-wrap" id="symbol"><div class="symbol-core"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1122 1402" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M338 206 L332 210 L330 218 L333 227 L333 231 L334 232 L338 251 L342 262 L345 277 L347 281 L347 284 L352 301 L352 305 L353 306 L353 310 L354 311 L355 320 L357 326 L357 331 L358 332 L358 339 L359 340 L359 364 L358 365 L357 373 L353 382 L345 390 L340 393 L330 396 L322 396 L321 397 L306 397 L305 396 L294 396 L293 395 L278 394 L277 393 L258 390 L249 387 L245 387 L233 383 L224 383 L219 388 L218 391 L219 397 L223 402 L278 444 L292 456 L313 477 L323 490 L330 502 L334 511 L334 514 L336 518 L337 526 L338 527 L338 536 L339 537 L338 561 L337 562 L337 568 L336 569 L334 583 L333 584 L328 607 L325 614 L325 617 L323 621 L323 624 L319 634 L319 637 L316 646 L314 649 L303 683 L298 694 L294 708 L292 711 L287 728 L284 734 L284 737 L280 746 L280 749 L277 757 L277 765 L283 771 L290 771 L295 767 L317 730 L340 687 L365 646 L382 623 L393 612 L403 605 L416 600 L421 600 L422 599 L431 599 L432 600 L437 600 L441 602 L448 603 L465 611 L493 630 L509 644 L540 676 L569 713 L589 744 L608 780 L608 782 L617 801 L619 809 L624 821 L627 836 L629 840 L630 851 L631 852 L631 883 L630 884 L630 890 L629 891 L629 895 L626 903 L625 910 L619 923 L619 925 L606 951 L597 966 L561 1020 L544 1043 L542 1048 L543 1055 L548 1059 L555 1059 L559 1057 L616 1000 L629 989 L648 976 L658 971 L667 968 L681 968 L689 971 L696 976 L703 984 L712 1000 L726 1040 L727 1047 L735 1072 L745 1113 L747 1117 L747 1120 L751 1130 L751 1133 L754 1140 L754 1143 L762 1168 L767 1173 L774 1173 L778 1171 L780 1168 L781 1162 L780 1161 L779 1143 L778 1142 L778 1135 L777 1134 L777 1128 L776 1127 L774 1103 L773 1102 L773 1095 L772 1094 L771 1075 L770 1074 L768 1019 L769 1018 L769 1004 L770 1003 L770 995 L771 994 L772 985 L779 965 L785 956 L792 949 L799 944 L809 939 L824 934 L828 934 L839 931 L844 931 L845 930 L850 930 L851 929 L856 929 L857 928 L882 926 L883 925 L890 925 L891 924 L898 924 L899 923 L908 923 L914 921 L918 917 L919 911 L917 906 L912 903 L867 895 L833 885 L818 877 L808 867 L802 856 L802 853 L800 848 L800 826 L801 825 L801 820 L802 819 L802 815 L806 803 L806 800 L808 797 L810 788 L820 761 L856 679 L855 671 L852 668 L846 666 L845 667 L842 667 L838 670 L771 766 L756 784 L745 795 L733 804 L715 810 L696 809 L686 806 L676 801 L659 788 L625 755 L610 738 L580 699 L547 649 L531 620 L529 618 L529 616 L527 614 L508 575 L503 560 L501 557 L499 548 L497 545 L496 538 L493 530 L492 520 L491 519 L491 512 L490 511 L490 488 L491 487 L491 480 L492 479 L493 470 L498 456 L504 444 L513 430 L524 417 L544 397 L572 373 L598 353 L619 334 L620 326 L618 322 L612 318 L607 318 L590 325 L585 326 L580 329 L578 329 L573 332 L571 332 L566 335 L564 335 L559 338 L547 342 L527 351 L494 361 L483 362 L482 363 L465 363 L464 362 L459 362 L455 360 L452 360 L437 352 L420 335 L400 304 L385 275 L383 273 L376 258 L374 256 L367 241 L365 239 L361 230 L353 218 L351 213 L347 208 L343 206 Z M810 739 L811 742 L808 747 L808 749 L800 767 L794 787 L791 793 L791 796 L789 800 L789 803 L787 807 L787 811 L785 816 L784 831 L783 832 L783 845 L784 846 L785 858 L787 864 L794 877 L800 884 L810 892 L830 902 L857 910 L855 912 L832 915 L823 918 L815 919 L796 926 L782 935 L772 945 L766 954 L758 973 L758 976 L755 985 L755 990 L754 991 L754 998 L753 999 L752 1040 L753 1041 L753 1059 L754 1060 L754 1072 L755 1073 L755 1080 L754 1081 L752 1077 L749 1062 L747 1058 L747 1055 L745 1051 L745 1048 L739 1030 L739 1027 L727 993 L716 973 L701 958 L696 955 L684 951 L666 951 L658 954 L655 954 L632 966 L618 976 L603 990 L601 989 L618 963 L634 932 L642 910 L644 898 L646 893 L647 881 L648 880 L648 857 L647 856 L647 849 L646 848 L645 837 L642 828 L642 824 L639 817 L639 814 L628 784 L629 783 L639 793 L646 802 L656 811 L663 816 L673 821 L692 827 L699 827 L700 828 L720 827 L733 823 L741 819 L757 807 L778 784 Z M362 268 L386 313 L408 346 L424 363 L437 372 L439 372 L446 376 L457 378 L458 379 L464 379 L465 380 L483 380 L484 379 L496 378 L497 377 L509 375 L530 368 L538 364 L548 361 L555 357 L560 356 L568 352 L570 353 L548 371 L526 391 L501 418 L486 442 L476 470 L475 480 L474 481 L474 489 L473 490 L473 508 L474 509 L474 518 L475 519 L477 533 L478 534 L481 549 L490 575 L513 623 L512 624 L491 607 L485 604 L477 598 L457 588 L448 585 L445 585 L440 583 L434 583 L433 582 L418 582 L403 586 L393 591 L380 601 L363 620 L338 658 L336 663 L317 695 L316 692 L321 681 L325 667 L327 664 L334 643 L334 640 L343 614 L344 607 L350 588 L352 573 L353 572 L353 566 L354 565 L354 558 L355 557 L355 528 L354 527 L354 522 L353 521 L352 513 L346 496 L342 488 L327 467 L302 442 L261 409 L264 408 L270 410 L276 410 L277 411 L283 411 L284 412 L290 412 L291 413 L303 413 L304 414 L325 414 L326 413 L333 413 L349 408 L358 402 L364 396 L368 390 L374 374 L375 361 L376 360 L376 345 L375 344 L375 335 L374 334 L374 327 L373 326 L371 310 L370 309 L367 292 L361 271 Z"/></svg></div></div>
+    <h1 aria-label="kweller"><span class="glyph" style="--i:0">k</span><span class="glyph" style="--i:1">w</span><span class="glyph" style="--i:2">e</span><span class="double-l"><span class="glyph" style="--i:3">l</span><span class="glyph" style="--i:4">l</span></span><span class="glyph" style="--i:5">e</span><span class="glyph" style="--i:6">r</span></h1>
+  </div>
+  <span class="hero-index">KWELLER © 2026</span><a class="scroll-prompt" href="#trabalhos"><span class="line"></span>ROLE PARA EXPLORAR <span aria-hidden="true">↓</span></a>
+</section>
+<section class="section" id="trabalhos">
+  <div class="eyebrow reveal">01 / Discografia selecionada</div>
+  <h2 class="headline reveal">o som<br>fala.</h2>
+  <div class="discography-tabs reveal" role="tablist" aria-label="Tipo de discografia">
+    <button type="button" class="discography-tab active" role="tab" id="tab-artista" aria-selected="true" aria-controls="panel-artista" tabindex="0" data-discography="artista">ARTISTA <span aria-hidden="true">↗</span></button>
+    <button type="button" class="discography-tab" role="tab" id="tab-produtor" aria-selected="false" aria-controls="panel-produtor" tabindex="-1" data-discography="produtor">PRODUTOR <span aria-hidden="true">↗</span></button>
+  </div>
+  <div id="panel-artista" class="discography-panel" role="tabpanel" aria-labelledby="tab-artista">
+    <div class="albums">
+      <a class="album" href="https://open.spotify.com/search/Kweller%20Para%C3%ADso%20T%C3%B3xico" target="_blank" rel="noopener noreferrer"><div class="art">PARAÍSO<br>TÓXICO</div><p><span>Paraíso Tóxico</span><span>2024 ↗</span></p></a>
+      <a class="album" href="https://open.spotify.com/search/Kweller%20Kontra" target="_blank" rel="noopener noreferrer"><div class="art">KONTRA</div><p><span>Kontra</span><span>2022 ↗</span></p></a>
+      <a class="album" href="https://open.spotify.com/search/Kweller%20Entre%20Amores%20Bailes" target="_blank" rel="noopener noreferrer"><div class="art">ENTRE<br>AMORES<br>&amp; BAILES</div><p><span>Entre Amores &amp; Bailes</span><span>2025 ↗</span></p></a>
+      <div class="album pending"><div class="art">A PREENCHER</div><p><span>Próximo projeto</span><span>—</span></p></div>
+      <div class="album pending"><div class="art">A PREENCHER</div><p><span>Próximo projeto</span><span>—</span></p></div>
+      <div class="album pending"><div class="art">A PREENCHER</div><p><span>Próximo projeto</span><span>—</span></p></div>
+    </div>
+  </div>
+  <div id="panel-produtor" class="discography-panel" role="tabpanel" aria-labelledby="tab-produtor" hidden>
+    <div class="albums">
+      <div class="album pending"><div class="art">A PREENCHER</div><p><span>Produção 01</span><span>—</span></p></div>
+      <div class="album pending"><div class="art">A PREENCHER</div><p><span>Produção 02</span><span>—</span></p></div>
+      <div class="album pending"><div class="art">A PREENCHER</div><p><span>Produção 03</span><span>—</span></p></div>
+    </div>
+  </div>
+</section>
+<section class="section live" id="ao-vivo"><div class="eyebrow reveal">02 / Ao vivo</div><h2 class="headline reveal">feito pra<br>sentir.</h2><div class="livegrid"><p class="reveal">Uma trajetória entre o rap, o trap e novas sonoridades brasileiras. Música para além dos fones.</p><div class="reveal"><p>Quer levar Kweller ao seu evento?</p><a class="button" href="#booking">Solicitar show ↗</a></div></div></section>
+<section class="socials" id="redes" aria-labelledby="redes-heading">
+  <h2 class="visually-hidden" id="redes-heading">Redes sociais de Kweller</h2>
+  <div class="social-links reveal" id="social-links">
+    <button type="button" class="social-expand" id="social-expand" aria-label="Mostrar Spotify, Instagram e TikTok" aria-expanded="false" aria-controls="social-links"><span class="visually-hidden">Mostrar redes sociais</span></button>
+    <a class="social-link spotify" tabindex="-1" href="https://open.spotify.com/artist/4W4NkfM4A1sX2S2bfYlV07?si=e7SHNhYjTbWGnmTPPsyoHQ" target="_blank" rel="noopener noreferrer" aria-label="Kweller no Spotify" title="Spotify">
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="23" fill="currentColor"/>
+        <path d="M10 17.5C19.2 14.5 30.3 15.8 39 20.8" stroke="#0b0b0b" stroke-width="4.1" stroke-linecap="round"/>
+        <path d="M11.7 24.4C20 21.8 29.4 22.8 36.8 27" stroke="#0b0b0b" stroke-width="3.55" stroke-linecap="round"/>
+        <path d="M13.3 31.1C20.6 28.9 28.2 29.8 34.3 33.3" stroke="#0b0b0b" stroke-width="3.05" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <a class="social-link instagram" tabindex="-1" href="https://www.instagram.com/kwellerrrr/" target="_blank" rel="noopener noreferrer" aria-label="Kweller no Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.4"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.65" cy="6.45" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a class="social-link tiktok" tabindex="-1" href="https://www.tiktok.com/@kwellerrrr" target="_blank" rel="noopener noreferrer" aria-label="Kweller no TikTok" title="TikTok">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 2c.2 2.3 1.4 3.8 3.8 4.1v3.3a10.6 10.6 0 0 1-3.8-1.1v6.5c0 4.3-2.9 7.3-6.9 7.3a6.7 6.7 0 0 1-6.7-6.8 6.9 6.9 0 0 1 8.1-6.7v3.4a3.4 3.4 0 0 0-4.6 3.3 3.3 3.3 0 0 0 3.2 3.4c1.9 0 3.4-1.4 3.4-3.9V2h3.5Z"/></svg>
+    </a>
+  </div>
+</section>
+<section class="section booking" id="booking"><div class="eyebrow reveal">04 / Contratações</div><h2 class="headline reveal">vamos<br>fazer acontecer.</h2><form id="form"><input name="nome" placeholder="Seu nome / produtora" aria-label="Seu nome ou produtora" required><input name="email" type="email" placeholder="E-mail" aria-label="E-mail" required><input name="cidade" placeholder="Cidade / UF" aria-label="Cidade e estado" required><input name="data" type="date" aria-label="Data do evento" required><textarea name="detalhes" rows="3" placeholder="Evento, público estimado e detalhes" aria-label="Detalhes do evento"></textarea><button type="submit">Preparar solicitação ↗</button></form><p id="notice" role="status" style="font-size:12px;color:#aaa">Protótipo: o formulário prepara os dados de contato, sem enviar a um servidor.</p></section>
+
+</main>
+<footer><span>© KWELLER</span><a href="#redes">REDES ↗</a><a href="#inicio">VOLTAR AO TOPO ↑</a></footer>
+<script>
+(()=>{
+const scene=document.querySelector('#hero-scene'), symbol=document.querySelector('#symbol');
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let tx=0,ty=0,cx=0,cy=0,scrollY=0,raf=0;
+function tick(){cx+=(tx-cx)*.065;cy+=(ty-cy)*.065; const travel=Math.min(scrollY/Math.max(innerHeight,1),1);symbol.style.transform=`translate(calc(-50% + ${cx.toFixed(2)}px),calc(-50% + ${cy.toFixed(2)}px)) scale(${(1+travel*.7).toFixed(3)})`;scene.style.transform=`translate3d(0,${(-travel*innerHeight*.16).toFixed(2)}px,0) scale(${(1+travel*.18).toFixed(3)})`;scene.style.opacity=Math.max(0,1-travel*1.35);raf=requestAnimationFrame(tick)}
+if(!reduced){window.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;tx=(e.clientX/innerWidth-.5)*36;ty=(e.clientY/innerHeight-.5)*36},{passive:true});window.addEventListener('scroll',()=>{scrollY=window.scrollY},{passive:true});raf=requestAnimationFrame(tick)}
+const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}}),{threshold:.13});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const discographyTabs=[...document.querySelectorAll('.discography-tab')];
+function selectDiscography(tab){
+  discographyTabs.forEach(t=>{const selected=t===tab;t.classList.toggle('active',selected);t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;document.querySelector('#panel-'+t.dataset.discography).hidden=!selected;});
+}
+discographyTabs.forEach((tab,i)=>{
+  tab.addEventListener('click',()=>selectDiscography(tab));
+  tab.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?discographyTabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+discographyTabs.length)%discographyTabs.length;selectDiscography(discographyTabs[next]);discographyTabs[next].focus();}});
+});
+const socialLinks=document.querySelector('#social-links');
+const socialToggle=document.querySelector('#social-expand');
+const socialAnchors=[...socialLinks.querySelectorAll('.social-link')];
+socialToggle.addEventListener('click',()=>{
+  socialLinks.classList.add('expanded');
+  socialToggle.setAttribute('aria-expanded','true');
+  socialAnchors.forEach(a=>a.removeAttribute('tabindex'));
+});
+document.querySelector('#form').addEventListener('submit',async e=>{e.preventDefault();const d=new FormData(e.target),b=`Solicitação de show Kweller
+Nome: ${d.get('nome')}
+Email: ${d.get('email')}
+Cidade: ${d.get('cidade')}
+Data: ${d.get('data')}
+Detalhes: ${d.get('detalhes')}`;let ok=false;try{await navigator.clipboard.writeText(b);ok=true}catch{}document.querySelector('#notice').textContent=ok?'Solicitação copiada. Envie os dados ao contato comercial de Kweller quando disponível.':'Dados preenchidos. O contato comercial ainda precisa ser configurado para envio.'});
+})();
+</script>
+</body></html>
